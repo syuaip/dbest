@@ -101,37 +101,32 @@ The rule set that drives evaluation is documented in
 
 ```
 .
-├── bestpractices.md          # The rule set every check is derived from
-├── specification.md          # End-to-end behavioral specification
+├── dbscript/                 # Per-engine read-only diagnostic scripts,
+│   ├── mssql/                #   numbered for deterministic run order
+│   ├── pgsql/
+│   ├── oracle/
+│   ├── mysql/
+│   └── mongodb/
 │
-├── mssql/  pgsql/  oracle/   # Per-engine read-only diagnostic scripts,
-├── mysql/  mongodb/          #   numbered for deterministic run order
-│
-├── ddl-anti-pattern-samples/ # Sample schemas that intentionally violate best
-│                             #   practices — useful for testing/demos
-│
-├── python/                   # Python implementation (reference)
+├── dbest-python/             # Python implementation (reference)
 │   ├── dbest.py              #   entry point
 │   ├── dbest/                #   cli_parser, db_connector, script_discovery,
 │   │                         #   script_runner, evaluators, report_generator, models
-│   ├── tests/                #   unit + property tests
-│   ├── requirements.txt
-│   └── pyproject.toml
+│   └── requirements.txt
 │
-├── csharp/                   # C#/.NET 8 implementation (Linux/Windows executable)
-│   ├── dbbpc/                #   project + sources
-│   └── dbbpc.tests/          #   xUnit tests
+├── dbest-linux-x64/          # C#/.NET 8 implementation (Linux executable)
+│   ├── Program.cs            #   entry point + sources
+│   ├── dbbpc.csproj
+│   └── dbbpc.sln
 │
-├── vbnet/                    # VB.NET implementation (Windows executable)
-│   ├── dbbpc/
-│   └── dbbpc.tests/
+├── dbest-win-x64/            # VB.NET implementation (Windows executable)
+│   ├── Program.vb            #   entry point + sources
+│   ├── dbbpc.vbproj
+│   └── dbbpc.sln
 │
-├── powershell/               # PowerShell 7 implementation
-│   ├── dbest.ps1             #   entry point
-│   ├── dbest/                #   module files
-│   └── tests/                #   Pester tests
-│
-└── docs/                     # How-to guides per engine (see below)
+└── dbest-powershell/         # PowerShell 7 implementation
+    ├── dbest.ps1             #   entry point
+    └── dbest/                #   module files
 ```
 
 > The four implementations are feature-equivalent: same CLI, same script packs, same report.
