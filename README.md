@@ -82,8 +82,8 @@ practices first" the easy default.
 5. **Generate** a single HTML file: `dbest_<engine>_<host>_<timestamp>.html`.
 
 The rule set that drives evaluation is documented in
-[`bestpractices.md`](bestpractices.md), and the end-to-end behavior is described in
-[`specification.md`](specification.md).
+[`bestpractices.md`](specs/bestpractices.md), and the end-to-end behavior is described in
+[`specification.md`](specs/specification.md).
 
 ## Supported engines
 
