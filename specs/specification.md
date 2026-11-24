@@ -1,43 +1,79 @@
-Problem statement:
-It is a challenge for an AWS Solutions Architect to know what is wrong and what may be wrong within a running database on customer environment. 
-Avoiding a database issue is better than fixing a running database issue. Hence, checking database best practices whenever possible is preferable. 
+# Database Best Practices Checker — Specification
 
-The target database engine to check are:
-(1) SQL Server, with working directory at 'mssql'
-(2) MySQL, with working directory at 'mysql'
-(3) Oracle, with working directory at 'oracle'
-(4) PostgreSQL, with working directory at 'pgsql'
-(5) MongoDB, with working directory at 'mongodb'
+## Problem statement
 
-The behavior of the database best practices checker script is as follow:
-- the checker is a script or a command-line executable (CLI)
-- the script name is dbbpc, with file extension added based on the language used for the script creation (e.g. .py for Python, .exe for Windows)
-- the script being called with parameters as follow:
-a. database engine type (parameter: dbengine)
-b. database hostname (parameter: dbhost)
-c. database port number (parameter: port)
-d. database username (parameter: username)
-e. database password (parameter: password). If password parameter is not given, ask for it with this kind of prompt: "give me password to access the database: "
-f. directory usage:
-    * if the database engine is 'mongodb' use SQL scripts located on 'mongodb' directory
-    * if the database engine is 'mssql' use SQL scripts located on 'mssql' directory
-    * if the database engine is 'mssql' use SQL scripts located on 'mssql' directory
-    * if the database engine is 'mysql' use SQL scripts located on 'mysql' directory
-    * if the database engine is 'oracle' use SQL scripts located on 'oracle' directory
-    * if the database engine is 'postgres' use SQL scripts located on 'pgsql' directory
-g. The rules for database best practices is defined on a Markdown file named 'bestpractices.md'. Run the SQL scripts found there and write the output to HTML file named 'dbbpc.html'.
+It is a challenge for an AWS Solutions Architect to know what is wrong — and what *may* be wrong — within a running database in a customer environment. Avoiding a database issue is better than fixing a running one; hence, checking database best practices whenever possible is preferable.
 
-Workflow:
-Script being called/run -> Get parameter -> Connect to the database instance -> Run relevant SQL scripts -> Write output as HTML file for analysis by AWS SA.  
+## Target database engines
 
-You are being tasked to plan a build of this database best practices checker script. 
+The target database engines to check are:
 
-The target language are: 
-(1) Python for ability to run as a script downloaded from Github
-(2) VB.net for ability to run as an executable in Windows
-(3) C#.net for ability to run as an executable in Amazon Linux 
+| # | Engine | Working directory |
+| --- | --- | --- |
+| 1 | SQL Server | `mssql` |
+| 2 | MySQL | `mysql` |
+| 3 | Oracle | `oracle` |
+| 4 | PostgreSQL | `pgsql` |
+| 5 | MongoDB | `mongodb` |
 
-Task:
-1. Create scripts on each database engine directories based on each database best practices rules as defined on a Markdown file named 'bestpractices.md'. 
+## Behavior
+
+The behavior of the database best practices checker script is as follows:
+
+- The checker is a script or a command-line executable (CLI).
+- The script name is `dbbpc`, with a file extension added based on the language used to create it (e.g. `.py` for Python, `.exe` for Windows).
+- The script is called with the following parameters:
+
+| Parameter | Name | Description |
+| --- | --- | --- |
+| a | `dbengine` | Database engine type |
+| b | `dbhost` | Database hostname |
+| c | `port` | Database port number |
+| d | `username` | Database username |
+| e | `password` | Database password. If the `password` parameter is not given, prompt for it with: `give me password to access the database:` |
+
+### Directory usage
+
+The engine determines which script directory is used:
+
+| Engine (`dbengine`) | Script directory |
+| --- | --- |
+| `mongodb` | `mongodb` |
+| `mssql` | `mssql` |
+| `mysql` | `mysql` |
+| `oracle` | `oracle` |
+| `postgres` | `pgsql` |
+
+### Rules and output
+
+The rules for database best practices are defined in a Markdown file named `bestpractices.md`. Run the SQL scripts found in the relevant directory and write the output to an HTML file named `dbbpc.html`.
+
+## Workflow
+
+```text
+Script called/run
+    → Get parameters
+    → Connect to the database instance
+    → Run relevant SQL scripts
+    → Write output as an HTML file for analysis by the AWS SA
+
+```
+
+## Build task
+
+You are tasked to plan a build of this database best practices checker script.
+
+### Target languages
+
+| # | Language | Purpose |
+| --- | --- | --- |
+| 1 | Python | Ability to run as a script downloaded from GitHub |
+| 2 | VB.NET | Ability to run as an executable on Windows |
+| 3 | C#.NET | Ability to run as an executable on Amazon Linux |
+
+### Tasks
+
+1. Create scripts in each database engine directory based on each database best practices rule as defined in `bestpractices.md`.
 2. Create a detailed specification of the script.
-3. Create a ready to run script for Python and ready to compile and run for VB.net and C#.net. 
+3. Create a ready-to-run script for Python, and ready-to-compile-and-run projects for VB.NET and C#.NET.
+
