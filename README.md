@@ -229,7 +229,7 @@ It contains:
 ## What it checks
 
 Checks are grouped into three levels. The authoritative definitions live in
-[`bestpractices.md`](bestpractices.md); the highlights:
+[`bestpractices.md`](specs/bestpractices.md); the highlights:
 
 **Instance level**
 - High-availability replica present for production instances
@@ -264,7 +264,7 @@ Checks are just files — no code change required.
    `pgsql/27_my_new_check.sql`.
 2. Make sure the query is **read-only** and returns the standard columns the report expects
    (`check_name`, `check_level`, `status`, `severity`, `current_value`, `default_value`,
-   `message`). See any existing script, e.g. [`mssql/01_cpu_utilization.sql`](mssql/01_cpu_utilization.sql),
+   `message`). See any existing script, e.g. [`mssql/01_cpu_utilization.sql`](dbscripts\mssql/01_cpu_utilization.sql),
    for the exact shape.
 3. Run DBEST — the script is auto-discovered in sort order.
 
