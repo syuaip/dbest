@@ -89,11 +89,11 @@ The rule set that drives evaluation is documented in
 
 | Engine | Keyword (`--dbengine`) | Default port | Script folder | Checks |
 |---|---|---|---|---|
-| Microsoft SQL Server | `mssql` | 1433 | [`mssql/`](dbscripts/mssql/) | 27 |
-| PostgreSQL | `postgres` | 5432 | [`pgsql/`](dbscripts/pgsql/) | 26 |
-| Oracle | `oracle` | 1521 | [`oracle/`](dbscripts/oracle/) | 25 |
-| MySQL | `mysql` | 3306 | [`mysql/`](dbscripts/mysql/) | 24 |
-| MongoDB | `mongodb` | 27017 | [`mongodb/`](dbscripts/mongodb/) | 7 |
+| Microsoft SQL Server | `mssql` | 1433 | [`mssql/`](dbscript/mssql/) | 27 |
+| PostgreSQL | `postgres` | 5432 | [`pgsql/`](dbscript/pgsql/) | 26 |
+| Oracle | `oracle` | 1521 | [`oracle/`](dbscript/oracle/) | 25 |
+| MySQL | `mysql` | 3306 | [`mysql/`](dbscript/mysql/) | 24 |
+| MongoDB | `mongodb` | 27017 | [`mongodb/`](dbscript/mongodb/) | 7 |
 
 > MongoDB checks are authored as `.js` scripts; all relational engines use `.sql`.
 
@@ -264,7 +264,7 @@ Checks are just files — no code change required.
    `pgsql/27_my_new_check.sql`.
 2. Make sure the query is **read-only** and returns the standard columns the report expects
    (`check_name`, `check_level`, `status`, `severity`, `current_value`, `default_value`,
-   `message`). See any existing script, e.g. [`mssql/01_cpu_utilization.sql`](dbscripts/mssql/01_cpu_utilization.sql),
+   `message`). See any existing script, e.g. [`mssql/01_cpu_utilization.sql`](dbscript/mssql/01_cpu_utilization.sql),
    for the exact shape.
 3. Run DBEST — the script is auto-discovered in sort order.
 
