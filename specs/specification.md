@@ -21,7 +21,7 @@ The target database engines to check are:
 The behavior of the database best practices checker script is as follows:
 
 - The checker is a script or a command-line executable (CLI).
-- The script name is `dbbpc`, with a file extension added based on the language used to create it (e.g. `.py` for Python, `.exe` for Windows).
+- The script name is `dbest`, with a file extension added based on the language used to create it (e.g. `.py` for Python, `.exe` for Windows).
 - The script is called with the following parameters:
 
 | Parameter | Name | Description |
@@ -46,7 +46,7 @@ The engine determines which script directory is used:
 
 ### Rules and output
 
-The rules for database best practices are defined in a Markdown file named `bestpractices.md`. Run the SQL scripts found in the relevant directory and write the output to an HTML file named `dbbpc.html`.
+The rules for database best practices are defined in a Markdown file named `bestpractices.md`. Run the SQL scripts found in the relevant directory and write the output to an HTML file named `dbest.html`.
 
 ## Workflow
 
