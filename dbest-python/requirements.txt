@@ -1,0 +1,8 @@
+pyodbc
+mysql-connector-python
+psycopg2-binary
+pymongo
+hypothesis
+pytest
+oracledb
+
