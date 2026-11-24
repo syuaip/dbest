@@ -2,7 +2,7 @@
 
 ## Problem statement
 
-It is a challenge for an AWS Solutions Architect to know what is wrong — and what *may* be wrong — within a running database in a customer environment. Avoiding a database issue is better than fixing a running one; hence, checking database best practices whenever possible is preferable.
+It is a challenge for an database technical person to know what is wrong — and what *may* be wrong — within a running database in a customer environment. Avoiding a database issue is better than fixing a running one; hence, checking database best practices whenever possible is preferable.
 
 ## Target database engines
 
